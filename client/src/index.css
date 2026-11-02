@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-none ring-2 ring-sky-500 ring-offset-2 ring-offset-paper rounded-md; }
+  html.large-text { font-size: 18px; }
+}
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60 min-h-[44px]; }
+  .btn-primary { @apply btn bg-mint-700 text-white hover:bg-mint-800 active:bg-mint-900; }
+  .btn-secondary { @apply btn bg-white text-ink border border-ink/15 hover:bg-mint-50; }
+  .btn-danger { @apply btn bg-coral-600 text-white hover:bg-coral-700; }
+  .btn-ghost { @apply btn text-ink-soft hover:bg-ink/5; }
+  .card { @apply rounded-xl2 bg-white shadow-card border border-ink/5; }
+  .field-label { @apply mb-1.5 block text-sm font-semibold text-ink; }
+  .field-input { @apply w-full rounded-xl border border-ink/20 bg-white px-3.5 py-2.5 text-base text-ink placeholder:text-ink-faint focus:border-sky-500 min-h-[44px]; }
+  .field-error { @apply mt-1.5 text-sm font-medium text-coral-700; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}

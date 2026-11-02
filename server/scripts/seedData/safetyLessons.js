@@ -1,0 +1,171 @@
+// Draft educational content written from widely published public-safety guidance.
+// It has NOT been certified by an emergency-management authority. Before real-world use, review it against
+// your local authority's advice (e.g. NDMA India, local fire service) and replace/extend the numbers below.
+const quiz = (question, options, correctIndex, explanation) => ({ question, options, correctIndex, explanation });
+const src = (name, note) => ({ name, note });
+const COMMON_NOTE = 'Educational exercise only — this app does not send or receive live emergency alerts.';
+
+export const safetyLessons = [
+  {
+    slug: 'earthquake-safety', title: 'Earthquake Safety', hazardType: 'earthquake', emoji: '🌍',
+    introduction: 'Earthquakes shake the ground without warning. Knowing what to do in the first few seconds helps you stay safe.',
+    learningObjectives: ['Say and show "Drop, Cover, Hold On"', 'Find safe spots in each room', 'Know what to do after the shaking stops'],
+    lessonContent: [
+      { heading: 'During shaking', body: 'Drop to your hands and knees, cover your head and neck, and hold on to something sturdy until the shaking stops. Do not run outside while the ground is moving.' },
+      { heading: 'Where is safe?', body: 'Under a strong table or desk, or against an inside wall away from windows, mirrors and heavy furniture that could fall.' },
+      { heading: 'If you are outside', body: 'Move to an open area away from buildings, trees, street lights and power lines, then drop, cover your head and hold on.' },
+      { heading: 'After the shaking', body: 'Expect aftershocks. Check for injuries, wear shoes, and use stairs instead of lifts. Follow your family plan and listen to adults and local authorities.' },
+    ],
+    safetySteps: ['Drop to hands and knees', 'Cover your head and neck', 'Hold on until the shaking stops', 'Stay away from windows and heavy furniture', 'After shaking, use stairs, not lifts'],
+    checklist: ['Identify a safe spot in every room', 'Fix tall shelves to walls (adults)', 'Keep shoes and a torch near the bed', 'Practise the drill twice a year', 'Agree on a family meeting place'],
+    parentPractice: ['Run a 1-minute drill: say "Earthquake!" and have children Drop, Cover and Hold On.', 'Walk through the home and choose a safe spot for each room together.', 'Check that heavy items are not above beds or sofas.'],
+    quizQuestions: [
+      quiz('What should you do first when the ground starts shaking?', ['Run outside quickly', 'Drop, Cover and Hold On', 'Stand in a doorway and watch'], 1, 'Drop, Cover and Hold On protects you from falling objects while you stay steady.'),
+      quiz('Which is the safest place indoors during an earthquake?', ['Next to a large window', 'Under a sturdy table', 'Under a heavy hanging lamp'], 1, 'A sturdy table protects your head and body from falling things.'),
+      quiz('You are outside when the shaking starts. What is best?', ['Move to an open area away from buildings', 'Stand next to a tall building', 'Run under a tree'], 0, 'Buildings, trees and wires can fall. Open areas are safer.'),
+      quiz('After the shaking stops, how should you leave a building?', ['Use the lift', 'Use the stairs', 'Jump from a window'], 1, 'Lifts can fail after an earthquake. Stairs are safer.'),
+    ],
+    sourceReferences: [src('NDMA India — Earthquake do’s and don’ts', 'Drop, Cover, Hold On guidance'), src('Ready.gov — Earthquakes', 'Protective actions during and after shaking')],
+  },
+  {
+    slug: 'flood-safety', title: 'Flood Safety', hazardType: 'flood', emoji: '🌊',
+    introduction: 'Floods can rise quickly and water can hide hazards. The safest choice is to move to higher ground and stay away from flood water.',
+    learningObjectives: ['Explain why we never walk or play in flood water', 'Know to move to higher ground', 'Know what to take and who to tell'],
+    lessonContent: [
+      { heading: 'Turn around, don’t drown', body: 'Moving water can knock a person over even when it is shallow, and it can carry cars away. Never walk, swim or drive through flood water.' },
+      { heading: 'Move up and stay informed', body: 'Go to higher ground and follow instructions from adults and local authorities.' },
+      { heading: 'Hidden dangers', body: 'Flood water can be dirty and can hide holes, sharp objects and electrical hazards. Stay away from electrical equipment and fallen wires.' },
+      { heading: 'Afterward', body: 'Do not return home until adults say it is safe. Wash hands well if you touch flood water.' },
+    ],
+    safetySteps: ['Move to higher ground', 'Never walk or play in flood water', 'Stay away from fallen wires and electrical equipment', 'Keep important papers in a waterproof bag', 'Wait for adults or authorities to say it is safe'],
+    checklist: ['Know the nearest higher ground', 'Put documents in a waterproof bag', 'Keep a torch and phone power bank ready', 'Know who to call', 'Plan a route that avoids rivers and low roads'],
+    parentPractice: ['Mark your home and nearest higher ground on a map and talk through the route.', 'Check your family kit and move it to a high shelf.'],
+    quizQuestions: [
+      quiz('Is it safe to play in flood water?', ['Yes, if it is shallow', 'No, never', 'Yes, with boots'], 1, 'Flood water can be fast, dirty and hide hazards. Stay out.'),
+      quiz('If flood water is rising, where should you go?', ['Lower ground', 'Higher ground', 'Near the river'], 1, 'Higher ground keeps you away from rising water.'),
+      quiz('What should you do if you see a fallen electric wire near water?', ['Touch it with a stick', 'Stay far away and tell an adult', 'Walk through the water'], 1, 'Water and electricity are very dangerous together.'),
+    ],
+    sourceReferences: [src('NDMA India — Flood safety', 'Move to safe ground and avoid flood water'), src('Ready.gov — Floods', '"Turn Around, Don’t Drown" guidance')],
+  },
+  {
+    slug: 'fire-safety', title: 'Fire Safety', hazardType: 'fire', emoji: '🔥',
+    introduction: 'Fires spread fast and smoke is dangerous. A plan and practice help you get out quickly.',
+    learningObjectives: ['Know two ways out of every room', 'Know Stop, Drop and Roll', 'Know to get out and stay out'],
+    lessonContent: [
+      { heading: 'Get low and go', body: 'Smoke rises, so stay low where the air is cleaner and move quickly to the nearest safe exit.' },
+      { heading: 'Check doors', body: 'Feel a closed door with the back of your hand. If it is hot, do not open it; use another way out.' },
+      { heading: 'If your clothes catch fire', body: 'Stop, Drop to the ground, cover your face, and Roll until the fire is out.' },
+      { heading: 'Get out and stay out', body: 'Do not hide. Do not go back inside for toys or pets. Go to the family meeting place and call the fire service from outside.' },
+    ],
+    safetySteps: ['Get low and go', 'Feel doors with the back of your hand', 'Use another way out if a door is hot', 'Stop, Drop and Roll if clothes catch fire', 'Meet outside and call the fire service'],
+    checklist: ['Smoke alarms tested monthly (adult task)', 'Two ways out of each room', 'Outdoor meeting place chosen', 'Matches and lighters stored out of reach', 'Everyone knows the emergency number'],
+    parentPractice: ['Walk the escape routes together and practise crawling low.', 'Test the smoke alarm with the children and discuss the sound.', 'Do a timed exit drill during the day.'],
+    quizQuestions: [
+      quiz('What do you do if your clothes catch fire?', ['Run', 'Stop, Drop and Roll', 'Wave your arms'], 1, 'Running feeds the fire. Stop, Drop and Roll puts it out.'),
+      quiz('Where do you go after you get out of a burning building?', ['Back inside for toys', 'To the family meeting place', 'Hide under a bed'], 1, 'Once you are out, stay out and go to the meeting place.'),
+      quiz('A closed door feels hot. What should you do?', ['Open it quickly', 'Use another way out', 'Wait next to it'], 1, 'A hot door can mean fire on the other side.'),
+      quiz('Why do you stay low in smoke?', ['Smoke rises, so air is cleaner near the floor', 'It is more fun', 'To hide'], 0, 'Smoke and heat rise, so the cleanest air is near the floor.'),
+    ],
+    sourceReferences: [src('Ready.gov — Home fires', 'Escape planning and Stop, Drop and Roll'), src('NFPA — Escape planning', 'Two ways out and meeting place guidance')],
+  },
+  {
+    slug: 'lightning-thunderstorm-safety', title: 'Lightning and Thunderstorms', hazardType: 'lightning', emoji: '⚡',
+    introduction: 'Lightning can strike miles from a storm. When you hear thunder, go inside.',
+    learningObjectives: ['Use the 30-30 rule', 'Know where to shelter', 'Know what to avoid in a storm'],
+    lessonContent: [
+      { heading: 'When thunder roars, go indoors', body: 'If you hear thunder, lightning is close enough to be dangerous. Move into a substantial building or a hard-topped vehicle.' },
+      { heading: 'The 30-30 rule', body: 'Count the seconds between a flash and the thunder. If it is 30 seconds or less, go indoors. Wait 30 minutes after the last thunder before going back outside.' },
+      { heading: 'Stay away from', body: 'Open fields, hilltops, tall isolated trees, water, metal fences and open shelters.' },
+      { heading: 'Indoors', body: 'Stay away from windows and avoid plumbing, showers and corded devices during the storm.' },
+    ],
+    safetySteps: ['Go indoors at the first thunder', 'Use the 30-30 rule', 'Stay away from water and open spaces', 'Avoid windows and plumbing', 'Wait 30 minutes after the last thunder'],
+    checklist: ['Know where you will shelter', 'Check the forecast before outdoor plans', 'Keep a torch handy', 'Charge devices before storms', 'Agree on a call-in plan if you are out'],
+    parentPractice: ['Role-play counting seconds between "flash" and "thunder" indoors.', 'Choose a shelter spot at parks or play areas you visit.'],
+    quizQuestions: [
+      quiz('What should you do when you hear thunder?', ['Keep playing', 'Go indoors', 'Stand under a tall tree'], 1, 'If you can hear thunder, lightning can strike you.'),
+      quiz('How long should you wait after the last thunder before going outside?', ['5 minutes', '30 minutes', '2 hours'], 1, 'The 30-30 rule recommends waiting 30 minutes after the last thunder.'),
+      quiz('Which place is NOT safe in a thunderstorm?', ['Inside a solid building', 'Under a lone tree', 'Inside a hard-topped car'], 1, 'Tall isolated trees attract lightning.'),
+    ],
+    sourceReferences: [src('US National Weather Service — Lightning safety', '"When thunder roars, go indoors" and 30-30 guidance'), src('NDMA India — Thunderstorm and lightning', 'Shelter and precautions')],
+  },
+  {
+    slug: 'extreme-heat-safety', title: 'Extreme Heat Safety', hazardType: 'heat', emoji: '☀️',
+    introduction: 'Hot weather can make children unwell quickly. Drinking water, resting in shade and telling an adult early all help.',
+    learningObjectives: ['Know how to stay cool', 'Recognise early signs of heat illness', 'Know never to stay in a parked car'],
+    lessonContent: [
+      { heading: 'Stay cool', body: 'Drink water regularly, wear light, loose clothes and a hat, and rest in shade. Plan active play for cooler parts of the day.' },
+      { heading: 'Warning signs', body: 'Headache, dizziness, nausea, heavy sweating or feeling very tired can be early signs. Tell an adult, move to a cool place and sip water.' },
+      { heading: 'Serious signs', body: 'Confusion, fainting, or very hot dry skin need urgent help. Adults should call the local emergency number.' },
+      { heading: 'Never in a parked car', body: 'Cars heat up very quickly. Children must never be left in a parked car, even for a short time.' },
+    ],
+    safetySteps: ['Drink water often', 'Wear light clothes and a hat', 'Rest in shade or a cool place', 'Tell an adult if you feel unwell', 'Never stay in a parked car'],
+    checklist: ['Refillable water bottle for every child', 'Sun hats in the bag', 'Shade plan for outdoor play', 'Know the warning signs', 'Check on younger siblings'],
+    parentPractice: ['Practise telling an adult "I feel dizzy" and moving to the shade.', 'Make a family hot-day schedule that moves play to mornings or evenings.'],
+    quizQuestions: [
+      quiz('What is a good thing to do on a very hot day?', ['Play hard at noon', 'Drink water and rest in shade', 'Wear dark heavy clothes'], 1, 'Water, shade and light clothes help the body cool down.'),
+      quiz('You feel dizzy and hot. What should you do?', ['Keep playing', 'Tell an adult and move somewhere cool', 'Hide'], 1, 'Early action can prevent heat illness from getting worse.'),
+      quiz('Is it safe to stay in a parked car for a few minutes on a hot day?', ['Yes', 'No, never', 'Only with windows open'], 1, 'Cars heat up very quickly and can be dangerous within minutes.'),
+    ],
+    sourceReferences: [src('NDMA India — Heat wave guidelines', 'Hydration, clothing and warning signs'), src('WHO — Heat and health', 'General heat illness prevention')],
+  },
+  {
+    slug: 'emergency-contacts', title: 'Emergency Contacts', hazardType: 'emergency-contacts', emoji: '📞',
+    introduction: 'Knowing who to call and what to say can help in any emergency.',
+    learningObjectives: ['Know your address and a parent’s phone number', 'Know when to call for help', 'Know how to speak clearly on a call'],
+    lessonContent: [
+      { heading: 'When to call', body: 'Call for help when someone is badly hurt, there is a fire, or you are in danger and no adult can help. Do not call for fun or to practise.' },
+      { heading: 'Numbers', body: 'In India, 112 is the national emergency number. Other common numbers include 100 (police), 101 (fire) and 102 (ambulance), and 1098 for Childline. Numbers can differ by country and state, so confirm the ones for where you live with a parent.' },
+      { heading: 'What to say', body: 'Say your name, where you are, and what happened. Stay on the line and follow the instructions.' },
+      { heading: 'Know your details', body: 'Practise your full address and a parent’s phone number until you know them well. Keep them written on a card too.' },
+    ],
+    safetySteps: ['Stay calm and find an adult if you can', 'Call the emergency number', 'Say who you are and where you are', 'Say what happened', 'Stay on the line'],
+    checklist: ['Emergency numbers on the fridge', 'Child knows their address', 'Child knows one parent’s number', 'A second contact outside the area', 'Practice with a toy phone'],
+    parentPractice: ['Role-play a call with a toy phone.', 'Write local emergency numbers on a card and place it by the phone.'],
+    quizQuestions: [
+      quiz('Which is the national emergency number in India?', ['112', '555', '000'], 0, '112 is the unified national emergency number in India.'),
+      quiz('When should you call an emergency number?', ['To play a joke', 'When someone is badly hurt or in danger', 'When you are bored'], 1, 'Emergency lines are for real emergencies only.'),
+      quiz('What should you say first on an emergency call?', ['Your favourite colour', 'Where you are and what happened', 'Goodbye'], 1, 'Responders need to know where to go and what is wrong.'),
+    ],
+    sourceReferences: [src('Government of India — ERSS 112', 'National emergency response number'), src('Childline India 1098', 'Helpline for children in need of care and protection')],
+  },
+  {
+    slug: 'emergency-kit', title: 'Emergency Kit Preparation', hazardType: 'emergency-kit', emoji: '🎒',
+    introduction: 'A prepared kit gives your family what it needs for the first few days of an emergency.',
+    learningObjectives: ['Name key items for an emergency kit', 'Help pack and check a kit', 'Know where the kit is kept'],
+    lessonContent: [
+      { heading: 'Water and food', body: 'Plan for at least three days of drinking water and non-perishable food for everyone, including special diets.' },
+      { heading: 'Light, power and communication', body: 'Include a torch, spare batteries, a power bank, a whistle and a battery or hand-crank radio if possible.' },
+      { heading: 'Health and hygiene', body: 'Pack a first-aid kit, any needed medicines (adults manage these), masks, soap and sanitiser.' },
+      { heading: 'Papers and comfort', body: 'Keep copies of important documents, some cash, a blanket, a change of clothes and a small comfort item for each child.' },
+    ],
+    safetySteps: ['Pack water and non-perishable food', 'Pack a torch, batteries and a power bank', 'Pack first aid and hygiene items', 'Keep document copies in a waterproof bag', 'Store the kit where everyone can find it'],
+    checklist: ['Water for 3 days', 'Non-perishable food', 'Torch and batteries', 'First-aid kit', 'Whistle', 'Power bank', 'Copies of documents', 'Blanket and warm clothes', 'Comfort item'],
+    parentPractice: ['Pack the kit together and check expiry dates twice a year.', 'Let each child choose and pack one comfort item.'],
+    quizQuestions: [
+      quiz('How many days of water should a basic emergency kit cover?', ['One hour', 'At least three days', 'One month'], 1, 'Many agencies recommend preparing for at least three days.'),
+      quiz('Which item helps you signal for help?', ['A whistle', 'A pillow', 'A comb'], 0, 'A whistle is loud and carries far.'),
+      quiz('Who manages medicines in the kit?', ['Children', 'Adults', 'Nobody'], 1, 'Medicines should always be managed by an adult.'),
+    ],
+    sourceReferences: [src('Ready.gov — Build a kit', 'Basic emergency supply list'), src('Red Cross — Emergency kit', 'Checklist guidance')],
+  },
+  {
+    slug: 'family-meeting-point-evacuation', title: 'Family Meeting Points and Evacuation Planning', hazardType: 'family-plan', emoji: '🗺️',
+    introduction: 'A family plan helps everyone know where to go and how to find each other.',
+    learningObjectives: ['Know two meeting places', 'Know two ways out of home', 'Know your out-of-area contact'],
+    lessonContent: [
+      { heading: 'Two meeting places', body: 'Choose one place right outside your home and another outside your neighbourhood in case you cannot go home.' },
+      { heading: 'Two ways out', body: 'Know two exits from each room and from the building.' },
+      { heading: 'A contact far away', body: 'Pick a relative or friend outside the area whom everyone can call or message to say they are safe.' },
+      { heading: 'Practise', body: 'Walk to the meeting places and review the plan twice a year. Include any pets and family members who need extra help.' },
+    ],
+    safetySteps: ['Pick two meeting places', 'Plan two ways out', 'Choose an out-of-area contact', 'Practise twice a year', 'Update the plan when anything changes'],
+    checklist: ['Meeting place 1 chosen', 'Meeting place 2 chosen', 'Contact outside the area chosen', 'Plan written down and shared', 'Plan practised this year'],
+    parentPractice: ['Walk to both meeting places with your children.', 'Review the plan with school and carers.'],
+    quizQuestions: [
+      quiz('How many meeting places should a family plan have?', ['One far away', 'Two: one near home and one outside the neighbourhood', 'None'], 1, 'Two places cover different situations.'),
+      quiz('Why pick a contact outside your area?', ['Local lines may be busy or down', 'It is fun', 'It is required'], 0, 'People outside the affected area can still be reached and can relay messages.'),
+      quiz('How often should you practise the plan?', ['Never', 'About twice a year', 'Only once'], 1, 'Regular practice helps everyone remember.'),
+    ],
+    sourceReferences: [src('Ready.gov — Make a plan', 'Family communication and meeting places'), src('NDMA India — Family disaster plan', 'Planning guidance')],
+  },
+].map((l) => ({ ...l, ageGroups: ['3-5', '6-8', '9-12', '13-17'], points: 15, isPublished: true, introduction: `${l.introduction} (${COMMON_NOTE})` }));

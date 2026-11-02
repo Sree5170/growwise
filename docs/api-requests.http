@@ -1,0 +1,111 @@
+### GrowWise sample API requests (VS Code "REST Client" or JetBrains HTTP Client).
+### Cookies are kept per file by the client. Every state-changing request needs X-Requested-With (CSRF defence).
+@host = http://localhost:5000/api
+@json = application/json
+
+### 1. Register a parent (role is always "parent"; sending a role is rejected)
+POST {{host}}/auth/register
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "name": "Asha Rao", "email": "asha@example.com", "password": "Passw0rd-demo" }
+
+### 2. Log in (sets the httpOnly cookie gw_token)
+POST {{host}}/auth/login
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "email": "asha@example.com", "password": "Passw0rd-demo" }
+
+### 3. Who am I?
+GET {{host}}/auth/me
+
+### 4. Create a child profile
+POST {{host}}/children
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "displayName": "Mia", "ageGroup": "6-8", "interests": ["art", "nature"], "goals": ["move-more"] }
+
+### 5. List children (copy an _id into @childId)
+GET {{host}}/children
+
+@childId = PASTE_CHILD_ID
+@activityId = PASTE_ACTIVITY_ID
+
+### 6. Browse activities with filters + pagination
+GET {{host}}/activities?category=creativity&age=7&maxDuration=30&q=stone&page=1&limit=10
+
+### 7. Assign a task
+POST {{host}}/tasks
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "childId": "{{childId}}", "activityId": "{{activityId}}", "scheduledDate": "2026-10-15T12:00:00.000Z", "dueDate": "2026-10-16T12:00:00.000Z", "parentNote": "After snack" }
+
+@taskId = PASTE_TASK_ID
+
+### 8. Open child mode (replaces the cookie with a child-locked session)
+POST {{host}}/children/{{childId}}/session
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{}
+
+### 9. (child mode) Submit the task
+POST {{host}}/tasks/{{taskId}}/submit
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "childNote": "I painted a fox", "minutesSpent": 25 }
+
+### 10. (child mode) Verification is forbidden -> 403
+POST {{host}}/tasks/{{taskId}}/verify
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "decision": "approve" }
+
+### 11. Leave child mode with the parent password
+POST {{host}}/auth/exit-child-mode
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "password": "Passw0rd-demo" }
+
+### 12. (parent) Approve — points come from the Activity record; sending points is rejected (422)
+POST {{host}}/tasks/{{taskId}}/verify
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "decision": "approve", "parentNote": "Great job" }
+
+### 13. Log movement (manual)
+POST {{host}}/physical-activity
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "childId": "{{childId}}", "activityType": "walking", "durationMinutes": 30, "activityDate": "2026-10-14T12:00:00.000Z", "note": "Park" }
+
+### 14. Games: questions, then submit answers (server scores them)
+GET {{host}}/games
+###
+GET {{host}}/games/pattern-quiz/questions?childId={{childId}}&count=5
+###
+POST {{host}}/games/pattern-quiz/attempts
+Content-Type: {{json}}
+X-Requested-With: XMLHttpRequest
+
+{ "childId": "{{childId}}", "durationSeconds": 60, "hintsUsed": 0, "answers": [ { "questionId": "p68-1", "answer": "10" } ] }
+
+### 15. Safety lessons
+GET {{host}}/safety-lessons?childId={{childId}}
+
+### 16. Progress, weekly report, recommendations, badges
+GET {{host}}/children/{{childId}}/progress?range=week
+###
+GET {{host}}/children/{{childId}}/reports/weekly
+###
+GET {{host}}/children/{{childId}}/recommendations?minutes=20&limit=5
+###
+GET {{host}}/children/{{childId}}/badges

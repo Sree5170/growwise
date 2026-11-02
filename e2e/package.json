@@ -1,0 +1,2 @@
+{ "name": "growwise-e2e", "private": true, "type": "module", "scripts": { "e2e": "node e2e.mjs" },
+  "dependencies": { "@sparticuz/chromium": "*", "axe-core": "*", "puppeteer-core": "*" } }
