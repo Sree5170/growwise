@@ -1,0 +1,1 @@
+import{T as t,U as a}from"./index-DUBQh31s.js";const p={list:s=>t(a.get("/safety-lessons",{params:s?{childId:s}:{}})),get:(s,e)=>t(a.get(`/safety-lessons/${s}`,{params:e?{childId:e}:{}})),complete:(s,e)=>t(a.post(`/safety-lessons/${s}/complete`,e))};export{p as s};

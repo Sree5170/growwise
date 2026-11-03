@@ -1,1 +1,0 @@
-import{T as e,U as t}from"./index-C_AR1SgZ.js";const r={list:()=>e(t.get("/games")),questions:(s,a)=>e(t.get(`/games/${s}/questions`,{params:a})),submit:(s,a)=>e(t.post(`/games/${s}/attempts`,a)),progress:s=>e(t.get(`/children/${s}/games/progress`))};export{r as g};
