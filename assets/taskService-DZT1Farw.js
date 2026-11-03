@@ -1,1 +1,0 @@
-import{T as e,U as a,X as p}from"./index-DUBQh31s.js";const r={list:s=>p(a.get("/tasks",{params:s})),create:s=>e(a.post("/tasks",s)),update:(s,t)=>e(a.patch(`/tasks/${s}`,t)),submit:(s,t)=>e(a.post(`/tasks/${s}/submit`,t)),verify:(s,t)=>e(a.post(`/tasks/${s}/verify`,t))};export{r as t};
